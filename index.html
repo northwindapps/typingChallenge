@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Typing Challenge</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="container"></div>
+        <div class="jt">
+        
+            <ul class="display-4"><li>T</li><li>Y</li><li>P</li><li>I</li><li>N</li><li>G</li><li>_</li><li>C</li><li>H</li><li>A</li><li>L</li><li>L</li><li>E</li><li>N</li><li>G</li><li>E</li><li>☆</li></ul>
+            
+
+            <hr>
+          
+            <h3 class="text-monospace" style="text-align: center; color: white; size: 30px;"></h3>
+            <input class="form-control form-control-lg second" name="userinput"  oninput="myFunction()" onkeypress="lastInput(event)" type="text" placeholder="" style="background: black; color: blanchedalmond; max-width: 50%;margin: 0 auto; margin-bottom: 50px">
+            
+             <!-- <img src="typingPics/0.png" class="img-fluid" alt="Responsive image" style="max-width: 70%; display: block;
+            margin: 0 auto;"> -->
+        </div>
+
+            <div class="keyboard">
+                <div class="toprow">
+                    <div class="keycap" id="zero"    ><span>~ `</span></div>
+                    <div class="keycap" id="one"     ><span>1 !</span></div>
+                    <div class="keycap" id="two"     ><span>2 @</span></div>
+                    <div class="keycap" id="three"   ><span>3</span></div>
+                    <div class="keycap" id="four"    ><span>4</span></div>
+                    <div class="keycap" id="five"    ><span>5</span></div>
+                    <div class="keycap" id="six"     ><span>6</span></div>
+                    <div class="keycap" id="seven"   ><span>7</span></div>
+                    <div class="keycap" id="eight"   ><span>8</span></div>
+                    <div class="keycap" id="nine"    ><span>9 (</span></div>
+                    <div class="keycap" id="onezero" ><span>0 )</span></div>
+                    <div class="keycap" id="oneone"  ><span>-</span></div>
+                    <div class="keycap" id="onetwo"  ><span>+ =</span></div>
+                    <div class="keycap" id="onethree"><span></span></div>
+          
+                </div>
+    
+                <div class="secondrow">
+                    <div class="keycap" id="onefour" ><span>Q</span></div>
+                    <div class="keycap" id="onefive" ><span>W</span></div>
+                    <div class="keycap" id="onesix"  ><span>E</span></div>
+                    <div class="keycap" id="oneseven"><span>R</span></div>
+                    <div class="keycap" id="oneeight"><span>T</span></div>
+                    <div class="keycap" id="onenine" ><span>Y</span></div>
+                    <div class="keycap" id="twozero" ><span>U</span></div>
+                    <div class="keycap" id="twoone"  ><span>I</span></div>
+                    <div class="keycap" id="twotwo"  ><span>O</span></div>
+                    <div class="keycap" id="twothree"><span>P</span></div>
+                    <div class="keycap" id="twofour" ><span>{ [</span></div>
+                    <div class="keycap" id="twofive" ><span>} ]</span></div>
+                </div>
+    
+                <div class="thirdrow">
+                    <div class="keycap" id="twosix"  ><span>A</span></div>
+                    <div class="keycap" id="twoseven"><span>S</span></div>
+                    <div class="keycap" id="twoeight"><span>D</span></div>
+                    <div class="keycap" id="twonine" ><span>F</span></div>
+                    <div class="keycap" id="threezero"><span>G</span></div>
+                    <div class="keycap" id="threeone"><span>H</span></div>
+                    <div class="keycap" id="threetwo"><span>J</span></div>
+                    <div class="keycap" id="threethre"><span>K</span></div>
+                    <div class="keycap" id="threefour"><span>L</span></div>
+                    <div class="keycap" id="threefive"><span>; :</span></div>
+                    <div class="keycap" id="threesix"><span>" '</span></div>
+                    <div class="keycap" id="threeseve"><span>\</span></div>
+                </div>
+    
+                <div class="forthrow">
+                    <div class="keycap" id="threeeigh"><span>Z</span></div>
+                    <div class="keycap" id="threenine"><span>X</span></div>
+                    <div class="keycap" id="fourzero"><span>C</span></div>
+                    <div class="keycap" id="fourone" ><span>V</span></div>
+                    <div class="keycap" id="fourtwo" ><span>B</span></div>
+                    <div class="keycap" id="fourthree"><span>N</span></div>
+                    <div class="keycap" id="fourfour"><span>M</span></div>
+                    <div class="keycap" id="fourfive"><span>< ,</span></div>
+                    <div class="keycap" id="foursix" ><span>> .</span></div>
+                    <div class="keycap" id="fourseven"><span>? /</span></div>
+                    <div class="keycap" id="foureight"><span>_</span></div>
+                </div>
+            </div>
+
+            <hr>
+            <hr>
+            <p class="footer">
+                <a class="btn btn-primary my-2" href="https://github.com/smallGear/typingpractice"  style="background: dimgray; border: dimgray; ">Github</a>
+                <a href="/" class="btn btn-primary my-2" id="shake" name="score">SCORE:</a>
+                <a href="/" class="btn btn-success my-2" id="topShake" name="topScore">TOP SCORE:</a>
+                <a href="/" class="btn btn-danger my-2" id="wrong" name="wrong">Opps</a>
+            </p>
+            <h5 style="color: white" >photo credit:paul-volkmer-qVotvbsuM_c-unsplash.jpg</h5>
+            
+        
+    </div>
+
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
