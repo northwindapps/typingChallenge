@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Typing Challenge RU</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index_ru.css">
 </head>
 <body>
     <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -19,7 +19,7 @@
             <hr>
           
             <h3 class="text-monospace" style="text-align: center; color: white; size: 30px;"></h3>
-            <input class="form-control form-control-lg second" name="userinput"  oninput="myFunction()" onkeypress="lastInput(event)" type="text" placeholder="" style="background: black; color: blanchedalmond; max-width: 50%;margin: 0 auto; margin-bottom: 50px">
+            <input class="form-control form-control-lg second" value="" name="userinput"  oninput="myFunction()" onkeypress="lastInput(event)" type="text" placeholder="" style="background: black; color: blanchedalmond; max-width: 50%;margin: 0 auto; margin-bottom: 50px">
             
              <!-- <img src="typingPics/0.png" class="img-fluid" alt="Responsive image" style="max-width: 70%; display: block;
             margin: 0 auto;"> -->
@@ -27,65 +27,65 @@
 
             <div class="keyboard">
                 <div class="toprow">
-                    <div class="keycap" id="zero"    ><span></span></div>
-                    <div class="keycap" id="one"     ><span>1</span></div>
-                    <div class="keycap" id="two"     ><span>2</span></div>
-                    <div class="keycap" id="three"   ><span>3</span></div>
-                    <div class="keycap" id="four"    ><span>4</span></div>
-                    <div class="keycap" id="five"    ><span>5</span></div>
-                    <div class="keycap" id="six"     ><span>6</span></div>
-                    <div class="keycap" id="seven"   ><span>7</span></div>
-                    <div class="keycap" id="eight"   ><span>8</span></div>
-                    <div class="keycap" id="nine"    ><span>9 (</span></div>
-                    <div class="keycap" id="onezero" ><span>0 )</span></div>
-                    <div class="keycap" id="oneone"  ><span>-</span></div>
-                    <div class="keycap" id="onetwo"  ><span>+ =</span></div>
-                    <div class="keycap" id="onethree"><span></span></div>
+                    <div class="keycap" id="zero"    ><span class="ru"></span></div>
+                    <div class="keycap" id="one"     ><span class="ru">1</span></div>
+                    <div class="keycap" id="two"     ><span class="ru">2</span></div>
+                    <div class="keycap" id="three"   ><span class="ru">3</span></div>
+                    <div class="keycap" id="four"    ><span class="ru">4</span></div>
+                    <div class="keycap" id="five"    ><span class="ru">5</span></div>
+                    <div class="keycap" id="six"     ><span class="ru">6</span></div>
+                    <div class="keycap" id="seven"   ><span class="ru">7</span></div>
+                    <div class="keycap" id="eight"   ><span class="ru">8</span></div>
+                    <div class="keycap" id="nine"    ><span class="ru">9 (</span></div>
+                    <div class="keycap" id="onezero" ><span class="ru">0 )</span></div>
+                    <div class="keycap" id="oneone"  ><span class="ru">-</span></div>
+                    <div class="keycap" id="onetwo"  ><span class="ru">+ =</span></div>
+                    <div class="keycap" id="onethree"><span class="ru"></span></div>
           
                 </div>
     
                 <div class="secondrow">
-                    <div class="keycap" id="onefour" ><span>Й</span></div>
-                    <div class="keycap" id="onefive" ><span>Ц</span></div>
-                    <div class="keycap" id="onesix"  ><span>У</span></div>
-                    <div class="keycap" id="oneseven"><span>К</span></div>
-                    <div class="keycap" id="oneeight"><span>Е</span></div>
-                    <div class="keycap" id="onenine" ><span>Н</span></div>
-                    <div class="keycap" id="twozero" ><span>Г</span></div>
-                    <div class="keycap" id="twoone"  ><span>Ш</span></div>
-                    <div class="keycap" id="twotwo"  ><span>Щ</span></div>
-                    <div class="keycap" id="twothree"><span>З</span></div>
-                    <div class="keycap" id="twofour" ><span>Х</span></div>
-                    <div class="keycap" id="twofive" ><span>Ъ</span></div>
+                    <div class="keycap" id="onefour" ><span>Q</span><span class="ru">Й</span></div>
+                    <div class="keycap" id="onefive" ><span>W</span><span class="ru">Ц</span></div>
+                    <div class="keycap" id="onesix"  ><span>E</span><span class="ru">У</span></div>
+                    <div class="keycap" id="oneseven"><span>R</span><span class="ru">К</span></div>
+                    <div class="keycap" id="oneeight"><span>T</span><span class="ru">Е</span></div>
+                    <div class="keycap" id="onenine" ><span>Y</span><span class="ru">Н</span></div>
+                    <div class="keycap" id="twozero" ><span>U</span><span class="ru">Г</span></div>
+                    <div class="keycap" id="twoone"  ><span>I</span><span class="ru">Ш</span></div>
+                    <div class="keycap" id="twotwo"  ><span>O</span><span class="ru">Щ</span></div>
+                    <div class="keycap" id="twothree"><span>P</span><span class="ru">З</span></div>
+                    <div class="keycap" id="twofour" ><span>@</span><span class="ru">Х</span></div>
+                    <div class="keycap" id="twofive" ><span>[</span><span class="ru">Ъ</span></div>
                 </div>
     
                 <div class="thirdrow">
-                    <div class="keycap" id="twosix"  ><span>Ф</span></div>
-                    <div class="keycap" id="twoseven"><span>Ы</span></div>
-                    <div class="keycap" id="twoeight"><span>В</span></div>
-                    <div class="keycap" id="twonine" ><span>А</span></div>
-                    <div class="keycap" id="threezero"><span>П</span></div>
-                    <div class="keycap" id="threeone"><span>Р</span></div>
-                    <div class="keycap" id="threetwo"><span>О</span></div>
-                    <div class="keycap" id="threethree"><span>Л</span></div>
-                    <div class="keycap" id="threefour"><span>Д</span></div>
-                    <div class="keycap" id="threefive"><span>Ж</span></div>
-                    <div class="keycap" id="threesix"><span>Э</span></div>
-                    <div class="keycap" id="threeseven"><span>Ё</span></div>
+                    <div class="keycap" id="twosix"  ><span>A</span><span class="ru">Ф</span></div>
+                    <div class="keycap" id="twoseven"><span>S</span><span class="ru">Ы</span></div>
+                    <div class="keycap" id="twoeight"><span>D</span><span class="ru">В</span></div>
+                    <div class="keycap" id="twonine" ><span>F</span><span class="ru">А</span></div>
+                    <div class="keycap" id="threezero"><span>G</span><span class="ru">П</span></div>
+                    <div class="keycap" id="threeone"><span>H</span><span class="ru">Р</span></div>
+                    <div class="keycap" id="threetwo"><span>J</span><span class="ru">О</span></div>
+                    <div class="keycap" id="threethree"><span>K</span><span class="ru">Л</span></div>
+                    <div class="keycap" id="threefour"><span>L</span><span class="ru">Д</span></div>
+                    <div class="keycap" id="threefive"><span>;</span><span class="ru">Ж</span></div>
+                    <div class="keycap" id="threesix"><span>:</span><span class="ru">Э</span></div>
+                    <div class="keycap" id="threeseven"><span>]</span><span class="ru">Ё</span></div>
                 </div>
     
                 <div class="forthrow">
-                    <div class="keycap" id="threeeight"><span>Я</span></div>
-                    <div class="keycap" id="threenine"><span>Ч</span></div>
-                    <div class="keycap" id="fourzero"><span>С</span></div>
-                    <div class="keycap" id="fourone" ><span>М</span></div>
-                    <div class="keycap" id="fourtwo" ><span>И</span></div>
-                    <div class="keycap" id="fourthree"><span>Т</span></div>
-                    <div class="keycap" id="fourfour"><span>Ь</span></div>
-                    <div class="keycap" id="fourfive"><span>Б</span></div>
-                    <div class="keycap" id="foursix" ><span>Ю</span></div>
-                    <div class="keycap" id="fourseven"><span>/?</span></div>
-                    <div class="keycap" id="foureight"><span></span></div>
+                    <div class="keycap" id="threeeight"><span>Z</span><span class="ru">Я</span></div>
+                    <div class="keycap" id="threenine"><span>X</span><span class="ru">Ч</span></div>
+                    <div class="keycap" id="fourzero"><span>C</span><span class="ru">С</span></div>
+                    <div class="keycap" id="fourone" ><span>V</span><span class="ru">М</span></div>
+                    <div class="keycap" id="fourtwo" ><span>B</span><span class="ru">И</span></div>
+                    <div class="keycap" id="fourthree"><span>N</span><span class="ru">Т</span></div>
+                    <div class="keycap" id="fourfour"><span>M</span><span class="ru">Ь</span></div>
+                    <div class="keycap" id="fourfive"><span>,</span><span class="ru">Б</span></div>
+                    <div class="keycap" id="foursix" ><span>.</span><span class="ru">Ю</span></div>
+                    <div class="keycap" id="fourseven"><span>/</span><span class="ru">/?</span></div>
+                    <div class="keycap" id="foureight"><span></span><span class="ru"></span></div>
                 </div>
             </div>
 

@@ -1,8 +1,10 @@
 
 let test = intToString(indexnumber=44);
 let previousImage = "";
+let field = document.getElementsByTagName("input")[0].focus();
 const space = " ";
-console.log(space.length);
+var synth = window.speechSynthesis;
+var voices = [];
 var title = document.querySelector("h1");
 var img = document.querySelector(".img-fluid");
 var questionLavel = document.querySelector(".text-monospace");
@@ -29,9 +31,9 @@ var questionsArray = [
     "смотрете",
     "говорить",
     "море",
-    "Я",
-    "Вы",
-    "Мы",
+    "я",
+    "вы",
+    "мы",
     "ТВ",
     "есть",
     "солнце",
@@ -137,6 +139,13 @@ tShakeButton.style.borderColor="#008000";
 
 const wrongButton = document.getElementById("wrong");
 
+populateVoiceList();
+if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = populateVoiceList;
+}
+
+           
+
 function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
   }
@@ -187,11 +196,7 @@ function wrongAlert(){
 
 
 function myFunction() {
-  
-    // console.log(lastInputValue);
-    // console.log(currentStr[typeNo]);
     wrongBoard.style.visibility = 'hidden';
-    
     
     if (typeNo+1 == currentStr.length ) {
         if (input.value == currentStr) {
@@ -205,6 +210,25 @@ function myFunction() {
                 topScoreBoard.innerHTML = "СВЗ: " + topScore;
                 timeToTopShake();
             }
+
+   
+          
+            var utterThis = new SpeechSynthesisUtterance(input.value);
+            utterThis.voice = voices[62];
+            utterThis.lang = voices[62].lang;
+            console.log(utterThis.voice);
+            console.log(utterThis.lang);
+            //utter the word
+            synth.speak(utterThis);
+            
+            sleep(5000);
+
+            var utterThis2 = new SpeechSynthesisUtterance("хорошо");
+            utterThis2.voice = voices[62];
+            utterThis2.lang = voices[62].lang;
+            //utter the word
+            synth.speak(utterThis2);
+
         }else{
             score = 0;
             scoreBoard.innerHTML = "Счет: " + score;
@@ -259,26 +283,13 @@ function getImage(){
     }
     
 
-    // if (filename == ",") {
-    //     filename = "comma";
-    // } else if (filename == "/") {
-    //     filename = "slash";
-    // } else if (filename == ".") {
-    //     filename = "period";
-    // }else if (filename == "?") {
-    //     filename = "question";
-    // }
-
-    // img.src= "typingPics/" + filename + ".png";
-
-    //playing js
     let val;
 
 
 
     // val = document.querySelector('span');
-    val = document.getElementsByTagName('span');
-    console.log(val[0].textContent);
+    val = document.getElementsByClassName('ru');
+    console.log(val);
 
 
     let output = '';
@@ -319,4 +330,13 @@ function intToString (indexnumber = -1){
     return output;
 
 
+}
+
+
+//
+function populateVoiceList() {
+    if(typeof speechSynthesis === 'undefined') {
+      return;
+    }
+    voices = speechSynthesis.getVoices();
 }
