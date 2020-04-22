@@ -19,51 +19,8 @@ var typeNo = 0;
 var typeStr = "";
 var lastInputValue = "";
 var questionsArray = [
-    "стул",
-    "море",
-    "кофе",
-    "работай",
-    "завтрак",
-    "привет",
-    "музыка",
-    "море",
-    "семя",
-    "смотрете",
-    "говорить",
-    "море",
-    "я",
-    "вы",
-    "мы",
-    "ТВ",
-    "есть",
-    "солнце",
-    "имя",
-    "апельсни",
-    "виноград",
-    "хлеб",
-    "молоко",
-    "море",
-    "одиннадцать",
-    "октябрь",
-    "апркль",
-    "ясно",
-    "дождь",
-    "математика",
-    "идти",
-    "жаркий",
-    "холодно",
-    "книга",
-    "прощай",
-    "стол",
-    "стул",
-    "Т34 был основным советским танком в ww2.",
-    "Этот русский фильм о войне захватывающий.",
-    "Это удобное кресло.",
-    "Как вы?",
-    "У меня все хорошо.",
-    "Какую музыку ты слушаешь?",
-    "Я учился в университете.",
-    "Я путешествовал по России однажды."
+    
+"pomme", "pêche", "Comment ça va?", "bonjour", "au revoir", "matin", "sûr", "été", "leçon", "Pourquoi penses-tu ça", "air", "femelle", "mâle", "emploi", "cinéma", "garçon", "étude", "coïncidence", "vie", "téléphone", "courrier", "médecin", "avoir", "lu", "livre", "speake", "manger", "boire", "vin", "prône","vacances", "malade", "nom", "âge", "bon", "mauvais", "pluie", "nuageux", "neige", "hiver", "fille", "usa", "C'est intéressant.", "dvd", "voyage"
 
 ];
 
@@ -132,14 +89,9 @@ var modeButtons = document.querySelectorAll(".mode");
 input.focus();
 
 var currentStr = questionsArray[Math.floor(Math.random() * questionsArray.length)];
+
+//currentStr = currentStr.replace(/â/g,'^a').replace(/î/g,'^i').replace(/û/g,'^u').replace(/ê/g,'^e').replace(/ô/g,'^o');
 questionLavel.innerHTML = currentStr;
-
-var utterThis3  = new SpeechSynthesisUtterance(currentStr);
-    utterThis3.voice = voices[62];
-    utterThis3.lang = "ru-RU";
-
-    //utter the word
-    synth.speak(utterThis3);
 
 getImage();
 
@@ -162,7 +114,7 @@ if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !=
            
 
 function sleep (time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
+    return new Promise((resolve) => setTimeout(resolve,time));
   }
 
 
@@ -211,65 +163,83 @@ function wrongAlert(){
 
 
 function myFunction() {
-    wrongBoard.style.visibility = 'hidden';
+
+        
     
+    wrongBoard.style.visibility = 'hidden';
     if (input.value.length == currentStr.length ) {
         if (input.value == currentStr) {
             score += 1;
-            scoreBoard.innerHTML = "Счет: " + score;
+            scoreBoard.innerHTML = "But: " + score;
             timeToShake();
             
 
             if (score >= topScore) {
                 topScore = score;
-                topScoreBoard.innerHTML = "СВЗ: " + topScore;
+                topScoreBoard.innerHTML = "Meilleur score: " + topScore;
                 timeToTopShake();
             }
 
    
           
-           
+            var utterThis = new SpeechSynthesisUtterance(input.value);
+            utterThis.voice = voices[4];
+            utterThis.lang = "fr-Fr";
+            console.log(utterThis.voice);
+            console.log(utterThis.lang);
+            //utter the word
+            synth.speak(utterThis);
+            
+            sleep(5000);
 
-            var utterThis2 = new SpeechSynthesisUtterance("хорошо");
-            utterThis2.voice = voices[62];
-            utterThis2.lang = voices[62].lang;
+            var utterThis2 = new SpeechSynthesisUtterance("très bien");
+            utterThis2.voice = voices[4];
+            utterThis2.lang = "fr-Fr";
             //utter the word
             synth.speak(utterThis2);
             next();
-
         }else{
             score = 0;
-            scoreBoard.innerHTML = "Счет: " + score;
+            scoreBoard.innerHTML = "But: " + score;
             wrongBoard.style.visibility = 'visible';
             wrongAlert();
             reset();
         }
+        
     } else if (lastInputValue != currentStr[typeNo]){
+            if (currentStr[typeNo] == 'â' ||  currentStr[typeNo] == 'î' || currentStr[typeNo] ==  'û' || currentStr[typeNo] == 'ô'|| currentStr[typeNo] ==  'ê') {
+                
+                typeNo += 1;
+                getImage();
+                return;
+            }
             
             wrongBoard.style.visibility = 'visible';
             wrongAlert();
-            
-        
-    } else {
+        //reset();
+    } else  {
+        //so far ok next.
         typeNo += 1;
-        
         getImage();
         
     }
 
-    
+
 
 
 }
 
 function lastInput(event){
+    //https://stackoverflow.com/questions/1772179/get-character-value-from-keycode-in-javascript-then-trim
      let x = event.which || event.keyCode;
      lastInputValue = String.fromCharCode(x)
+     console.log("lastInputValue",x);
+
 }
 
 function reset(){
     typeNo = 0;
-
+    // currentStr = questionsArray[Math.floor(Math.random() * questionsArray.length)];
     questionLavel.innerHTML = currentStr;
     input.value="";
     lastInputValue = "";
@@ -283,25 +253,15 @@ function next(){
     input.value="";
     lastInputValue = "";
     getImage();
-
-    var utterThis = new SpeechSynthesisUtterance(currentStr);
-    utterThis.voice = voices[62];
-    utterThis.lang = voices[62].lang;
-    console.log(utterThis.voice);
-    console.log(utterThis.lang);
-    //utter the word
-    synth.speak(utterThis);
-    
-    sleep(5000);
 }
 
 function getImage(){
 
     filename = currentStr[typeNo];
-
+    
     //uppercase
     filename = filename.toUpperCase();
-    console.log("uppercase", filename);
+    console.log("uppercase",filename);
 
     if (previousImage.length>0){
         const clearhistory = document.getElementById(previousImage);
@@ -332,8 +292,27 @@ function getImage(){
         hit.style.backgroundColor="#5d8bbd";
         previousImage = output;
     }
-    
 
+    if (output.length == 0){
+        //uppercase
+        filename = filename.toLowerCase();
+        console.log("lowercase",filename);
+        for (let index = 0; index < val.length; index++) {
+            const targetStr = val[index].textContent;
+            if (targetStr.includes(filename) ) {
+                output = intToString(indexnumber=index);
+            }
+        }
+    
+        if (output.length>0) {
+            console.log("output",output);
+            const hit = document.getElementById(output);
+            hit.style.backgroundColor="#5d8bbd";
+            previousImage = output;
+        }
+    }
+    
+ 
 
 
 
